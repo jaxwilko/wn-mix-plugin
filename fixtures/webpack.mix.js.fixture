@@ -1,0 +1,29 @@
+const basePath = '%base%';
+const { assertSupportedNodeVersion } = require(basePath + '/node_modules/laravel-mix/src/Engine');
+
+module.exports = async () => {
+    assertSupportedNodeVersion();
+
+    const mix = require(basePath + '/node_modules/laravel-mix/src/Mix').primary;
+
+    // disable manifest
+    mix.manifest.refresh = _ => void 0
+
+    mix.listen('init', function (mix) {
+        // define options
+        mix._api.options({
+            processCssUrls: false,
+            clearConsole: false,
+            cssNano: {
+                discardComments: {removeAll: true},
+            }
+        });
+    });
+
+    require('%mixConfigPath%');
+
+    await mix.installDependencies();
+    await mix.init();
+
+    return mix.build();
+};

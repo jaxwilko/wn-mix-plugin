@@ -1,0 +1,15 @@
+{
+  "name": "winter-mix",
+  "version": "1.0.0",
+  "description": "",
+  "author": "Jack Wilkinson <me@jackwilky.com>",
+  "license": "MIT",
+  "dependencies": {
+    "laravel-mix": "^6.0.25",
+    "resolve-url-loader": "^4.0.0",
+    "sass": "^1.35.2",
+    "sass-loader": "^12.1.0",
+    "webpack": "^5.9.0",
+    "node-sass": "^6.0.1"
+  }
+}

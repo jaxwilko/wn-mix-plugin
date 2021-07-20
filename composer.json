@@ -1,0 +1,12 @@
+{
+    "name": "jaxwilko/wn-mix-plugin",
+    "type": "winter-plugin",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jack Wilkinson",
+            "email": "me@jackwilky.com"
+        }
+    ],
+    "require": {}
+}
