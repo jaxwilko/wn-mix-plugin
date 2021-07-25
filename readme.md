@@ -2,6 +2,8 @@
 
 ### Installation
 
+> Notice: NPN >=`7.*` is require for this plugin
+
 We leverage the npm v7 feature workspaces to manage plugin resources from the application's root.
 
 To set this up, you need to add the following to your root `package.json`:
