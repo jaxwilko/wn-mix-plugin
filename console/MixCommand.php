@@ -124,14 +124,14 @@ class MixCommand extends Command
         }
 
         $this->createConfig($config);
-        $statusCode = $this->executeMixCommand($this->makeCommand($watch), dirname($config), $env);
+        $statusCode = $this->executeMixCommand($this->makeCommand($watch), dirname($config), $env, $watch ? null : 120);
         $this->removeConfig();
         return $statusCode;
     }
 
-    protected function executeMixCommand(array $command, string $workingDir, array $env = []): int
+    protected function executeMixCommand(array $command, string $workingDir, array $env = [], ?int $timeout = 60): int
     {
-        $process = new Process($command, $workingDir, $env);
+        $process = new Process($command, $workingDir, $env, null, $timeout);
         return $process->run(function ($status, $stdout) {
             if ($this->option('verbose')) {
                 $this->getOutput()->write($stdout);
