@@ -1,8 +1,5 @@
 # Winter Mix
 
-This plugin is still under active development and should not be used in production without
-serious testing.
-
 ### Installation
 
 We leverage the npm v7 feature workspaces to manage plugin resources from the application's root.
@@ -43,7 +40,7 @@ plugins/acme/myPlugin
   - Plugin.php
 ```
 
-Then you could use the following:
+Then you could use the following in your winter.mix.js file:
 
 ```javascript
 let mix = require('laravel-mix');
@@ -60,7 +57,7 @@ Once you're all set up, you can use the `mix` command to run compilation.
 ```
 Options:
   -l, --plugin[=PLUGIN]  Target a plugin.
-  -t, --theme            Target the theme
+  -t, --theme            Target the active theme.
   -d, --development      Run a development compile (this is default).
   -p, --production       Run a production compile.
   -w, --watch            Run and watch a development compile.
@@ -70,3 +67,19 @@ Options:
 By default, the `mix` command runs in development mode, you can change this by using the `--production` flag.
 
 You can only watch one thing at a time, so you must specify either `--theme` or `--plugin author.plugin`.
+
+### Examples
+
+Compile theme assets:
+- `./artisan mix --theme`
+- `./artisan mix --theme --production` (for production)
+- `./artisan mix --theme --watch` (in watch mode)
+
+Compile plugin assets:
+- `./artisan mix --plugin jaxwilko.mix`
+- `./artisan mix --plugin jaxwilko.mix --production` (for production)
+- `./artisan mix --plugin jaxwilko.mix --watch` (in watch mode)
+
+Compile everything:
+- `./artisan mix`
+- `./artisan mix --production` (for production)

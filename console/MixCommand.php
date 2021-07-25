@@ -183,7 +183,7 @@ class MixCommand extends Command
     {
         return [
             ['plugin', 'l', InputOption::VALUE_OPTIONAL, 'Target a plugin.', null],
-            ['theme', 't', InputOption::VALUE_NONE, 'Target the theme'],
+            ['theme', 't', InputOption::VALUE_NONE, 'Target the active theme.'],
             ['development', 'd', InputOption::VALUE_NONE, 'Run a development compile (this is default).'],
             ['production', 'p', InputOption::VALUE_NONE, 'Run a production compile.'],
             ['watch', 'w', InputOption::VALUE_NONE, 'Run and watch a development compile.']
