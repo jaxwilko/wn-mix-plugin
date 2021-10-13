@@ -24,6 +24,13 @@ module.exports = async () => {
                 discardComments: {removeAll: true},
             }
         });
+        // enable source maps for dev builds
+        if (!mix._api.inProduction()) {
+            mix._api.webpackConfig({
+                devtool: 'inline-source-map'
+            });
+            mix._api.sourceMaps();
+        }
     });
 
     // override default mix output

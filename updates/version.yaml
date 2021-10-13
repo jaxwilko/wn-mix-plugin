@@ -1,2 +1,3 @@
 1.0.0: First version of JaxWilko.Mix
 1.0.1: Added property tty support and enabled notifications when in watch mode
+1.0.2: Enabled source maps for development builds
