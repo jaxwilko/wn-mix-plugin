@@ -10,6 +10,8 @@ module.exports = async () => {
     mix.manifest.refresh = _ => void 0
 
     mix.listen('init', function (mix) {
+        // disable notifications if not in watch
+        %notificationInject%
         // define options
         mix._api.options({
             processCssUrls: false,
