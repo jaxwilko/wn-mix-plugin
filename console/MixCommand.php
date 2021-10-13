@@ -132,6 +132,11 @@ class MixCommand extends Command
     protected function executeMixCommand(array $command, string $workingDir, array $env = [], ?int $timeout = 60): int
     {
         $process = new Process($command, $workingDir, $env, null, $timeout);
+        try {
+            $process->setTty(true);
+        } catch (\Throwable $e) {
+            // This will fail on unsupported systems
+        }
         return $process->run(function ($status, $stdout) {
             if ($this->option('verbose')) {
                 $this->getOutput()->write($stdout);
