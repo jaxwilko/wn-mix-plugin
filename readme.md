@@ -11,7 +11,8 @@ To set this up, you need to add the following to your root `package.json`:
 ```json
 "workspaces": {
     "packages": [
-        "plugins/*/*"
+        "plugins/*/*",
+        "themes/*"
     ]
 }
 ```
