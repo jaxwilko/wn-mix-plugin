@@ -123,7 +123,7 @@ class MixCommand extends Command
             $this->info('compiling: ' . $name);
         }
 
-        $this->createConfig($config);
+        $this->createConfig($config, $watch);
         $statusCode = $this->executeMixCommand($this->makeCommand($watch), dirname($config), $env, $watch ? null : 120);
         $this->removeConfig();
         return $statusCode;
@@ -139,11 +139,13 @@ class MixCommand extends Command
         });
     }
 
-    public function createConfig(string $mixConfigPath): MixCommand
+    public function createConfig(string $mixConfigPath, bool $watch): MixCommand
     {
+        $notificationInject = $watch ? '' : 'mix._api.disableNotifications();';
+
         $config = str_replace(
-            ['%base%', '%mixConfigPath%'],
-            [base_path(), $mixConfigPath],
+            ['%base%', '%notificationInject%', '%mixConfigPath%'],
+            [base_path(), $notificationInject, $mixConfigPath],
             File::get($this->getFixturePath() . '.fixture')
         );
 
