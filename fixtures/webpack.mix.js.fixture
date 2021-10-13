@@ -10,6 +10,10 @@ module.exports = async () => {
     mix.manifest.refresh = _ => void 0
 
     mix.listen('init', function (mix) {
+        // define aliases
+        mix._api.alias({
+            '/winter': basePath,
+        });
         // disable notifications if not in watch
         %notificationInject%
         // define options
