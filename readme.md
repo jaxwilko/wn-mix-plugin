@@ -1,5 +1,7 @@
 # Winter Mix
 
+> NOTICE: This plugin is now redundent since Winter `v1.1.8`. The functionality provided has been added to core, please see the [docs](https://wintercms.com/docs/console/asset-compilation).
+
 ### Installation
 
 > Notice: NPN >=`7.*` is require for this plugin
